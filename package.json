@@ -1,0 +1,19 @@
+{
+  "name": "full-stack-react-webpack",
+  "version": "1.0.0",
+  "description": "Configure webpack to work with react project",
+  "main": "index.js",
+  "repository": "https://github.com/HeshamEltobgy/full-stack-react-webpack.git",
+  "author": "Hesham Eltobgy <hesham.eltobgy@griffithuni.edu.au>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "webpack": "^4.29.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.3"
+  }
+}
