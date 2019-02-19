@@ -81,7 +81,7 @@ var config = {
   devServer: {
     contentBase: BUILD_DIR,
     compress: true,
-    port: 9000,
+    port: 3000,
     disableHostCheck: false,
     open: true,
     hot: true
