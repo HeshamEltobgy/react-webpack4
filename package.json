@@ -7,7 +7,7 @@
   "author": "Hesham Eltobgy <hesham.eltobgy@griffithuni.edu.au>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --inline --hot",
     "clean": "rimraf dist",
     "build": "NODE_ENV=production && yarn clean && webpack -p",
     "deploy": "yarn build && git push -u origin master && git subtree push --prefix dist origin gh-pages"

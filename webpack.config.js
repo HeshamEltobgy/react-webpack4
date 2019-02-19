@@ -12,16 +12,16 @@ var BUILD_DIR = path.join(__dirname, 'dist');
 var APP_DIR = path.join(__dirname, 'src');
 
 const VENDOR_LIBS = [
-  'react', 'react-dom', 'react-router-dom'
+  'react', 'react-dom'
 ]
 
 var config = {
   // mode: 'development',
-  entry: APP_DIR + '/index.js',
-  // entry: {
-  //   bundle: APP_DIR + '/index.js',
-  //   vendor: VENDOR_LIBS
-  // },
+  // entry: APP_DIR + '/index.js',
+  entry: {
+    bundle: APP_DIR + '/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: BUILD_DIR,
     filename: '[name].[hash].js'
@@ -65,19 +65,19 @@ var config = {
 
     ]
   },
-  // optimization: {
-  //   runtimeChunk: false,
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendor',
-  //         chunks: 'all',
-  //       }
-  //     }
-  //   }
-  // 
-  // },
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        }
+      }
+    }
+
+  },
   devServer: {
     contentBase: BUILD_DIR,
     compress: true,
