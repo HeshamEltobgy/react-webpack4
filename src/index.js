@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM, {render} from 'react-dom';
 
-import './app.scss'
+import './index.scss'
 
 class App extends React.Component {
     render() {
