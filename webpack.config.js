@@ -6,24 +6,42 @@
 // }
 var webpack = require('webpack');
 var path = require('path');
+var htmlWebpackPlugin = require('html-webpack-plugin')
 
 var BUILD_DIR = path.join(__dirname, 'dist');
 var APP_DIR = path.join(__dirname, 'src');
 
+const VENDOR_LIBS = [
+  'react', 'react-dom', 'react-router-dom'
+]
+
 var config = {
   // mode: 'development',
-  entry: APP_DIR + '/app.js',
+  // entry: APP_DIR + '/index.js',
+  entry: {
+    bundle: APP_DIR + '/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
-    path: BUILD_DIR,
-    filename: 'app.bundle.js'
+    // path: BUILD_DIR,
+    // filename: '[name].[hash].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        // include: APP_DIR,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          babelrc: false,
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+          plugins: [
+           "@babel/plugin-proposal-class-properties", "syntax-dynamic-import"
+         ]
+        }
       },
       {
         test: /\.css$/,
@@ -46,6 +64,36 @@ var config = {
       }
 
     ]
-  }
+  },
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        }
+      }
+    }
+
+  },
+  devServer: {
+    contentBase: BUILD_DIR,
+    compress: true,
+    port: 9000,
+    disableHostCheck: false,
+    open: true,
+    hot: true
+  },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: "index.html"
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.Node_ENV)
+    })
+  ]
 }
 module.exports = config;
