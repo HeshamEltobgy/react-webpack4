@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server",
     "clean": "rimraf dist",
     "build": "NODE_ENV=production && yarn clean && webpack -p",
-    "deploy": "git push -u origin master && git subtree push --prefix dist origin gh-pages"
+    "deploy": "yarn build && git push -u origin master && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "bundle-loader": "^0.5.6",
