@@ -11,23 +11,22 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 var BUILD_DIR = path.join(__dirname, 'dist');
 var APP_DIR = path.join(__dirname, 'src');
 
-const VENDOR_LIBS = [
-  'react', 'react-dom', 'react-router-dom'
-]
+// const VENDOR_LIBS = [
+//   'react', 'react-dom', 'react-router-dom'
+// ]
 
 var config = {
   // mode: 'development',
-  // entry: APP_DIR + '/index.js',
-  entry: {
-    bundle: APP_DIR + '/index.js',
-    vendor: VENDOR_LIBS
-  },
+  entry: APP_DIR + '/index.js',
+  // entry: {
+  //   bundle: APP_DIR + '/index.js',
+  //   vendor: VENDOR_LIBS
   output: {
-    // path: BUILD_DIR,
-    // filename: '[name].[hash].js'
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js',
-    publicPath: '/'
+    path: BUILD_DIR,
+    filename: '[name].[hash].js'
+    // path: path.resolve(__dirname, 'dist'),
+    // filename: '[name].[hash].js',
+    // publicPath: '/'
   },
   module: {
     rules: [
@@ -65,30 +64,31 @@ var config = {
 
     ]
   },
-  optimization: {
-    runtimeChunk: false,
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-        }
-      }
-    }
-
-  },
+  // optimization: {
+  //   runtimeChunk: false,
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendor',
+  //         chunks: 'all',
+  //       }
+  //     }
+  //   }
+  //
+  // },
   devServer: {
     contentBase: BUILD_DIR,
     compress: true,
-    port: 3000,
+    port: 9000,
     disableHostCheck: false,
     open: true,
     hot: true
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: "index.html"
+      template: "./src/index.html",
+      filename: "./index.html"
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
