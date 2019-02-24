@@ -25,11 +25,11 @@ render() {
 }
 
 const Nav = () => (
-  <div>
-    <IndexLink activeClassName='active' to='/'>Home</IndexLink>
-    <IndexLink activeClassName='active' to='/about'>About</IndexLink>
-    <IndexLink activeClassName='active' to='/explore'>Explore</IndexLink>
-    <IndexLink activeClassName='active' to='/contact'>Contact</IndexLink>
+  <div className="topnav" id="myTopnav">
+    <IndexLink className="link" activeClassName='active' to='/'>Home</IndexLink>
+    <IndexLink className="link" activeClassName='active' to='/about'>About</IndexLink>
+    <IndexLink className="link" activeClassName='active' to='/explore'>Explore</IndexLink>
+    <IndexLink className="link" activeClassName='active' to='/contact'>Contact</IndexLink>
   </div>
 )
 

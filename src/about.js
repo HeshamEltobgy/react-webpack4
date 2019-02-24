@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 
 
 
-const About = () => <h1>Hello from About!</h1>
-
+const About = () =>
+<div className="about">
+<h2>This is About Page!</h2>
+</div>
 
 
 

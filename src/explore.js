@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
 
-const Explore = () => <h1>Hello from Explore!</h1>
-
+const Explore = () =>
+<div className="explore">
+<h2>This page contains our projects!</h2>
+</div>
 
 
 

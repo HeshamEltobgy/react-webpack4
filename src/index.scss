@@ -1,6 +1,26 @@
 body {
     background-color: gainsboro;
+
 }
-.active {
- color:#222;
+
+.home, .contact, .explore, .about {
+  margin-top: 11em;
+  text-align: center;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav .link {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+a.link.active {
+  color: aquamarine;
 }
