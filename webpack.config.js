@@ -12,7 +12,7 @@ var BUILD_DIR = path.join(__dirname, 'dist');
 var APP_DIR = path.join(__dirname, 'src');
 
 const VENDOR_LIBS = [
-  'react', 'react-dom'
+  'react', 'react-dom', 'react-router', 'react-router-dom'
 ]
 
 var config = {
